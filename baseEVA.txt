@@ -92,16 +92,22 @@ ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- object: public.produccion | type: TABLE --
 -- DROP TABLE IF EXISTS public.produccion CASCADE;
+create sequence produccion_seq
+	start with 2000
+	increment by 1
+	no minvalue
+	no maxvalue;
 CREATE TABLE public.produccion (
+	id_produccion integer NOT NULL DEFAULT NEXTVAL('produccion_seq'),
 	cantidad real NOT NULL,
 	area_sembrada real,
 	areal_cosechada real,
 	codigo_cultivo integer NOT NULL,
-	"ID_municipo" integer NOT NULL,
+	"ID_municipio" integer NOT NULL,
 	"ID_estado" integer,
 	anio_anio_periodo integer,
 	periodo_anio_periodo char(5),
-	CONSTRAINT produccion_pk PRIMARY KEY (codigo_cultivo,"ID_municipo")
+	CONSTRAINT produccion_pk PRIMARY KEY (id_produccion)
 
 );
 -- ddl-end --
