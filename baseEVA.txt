@@ -54,7 +54,7 @@ ON DELETE RESTRICT ON UPDATE CASCADE;
 CREATE SEQUENCE GRUPO_seq;
 CREATE TABLE public.grupo (
 	"ID" integer NOT NULL DEFAULT NEXTVAL('GRUPO_seq'),
-	nombre varchar(45) NOT NULL,
+	nombre varchar(70) NOT NULL,
 	CONSTRAINT "GRUPO_pk" PRIMARY KEY ("ID")
 
 );
@@ -67,7 +67,7 @@ CREATE TABLE public.grupo (
 CREATE SEQUENCE SUBGRUPO_seq;
 CREATE TABLE public.subgrupo (
 	"ID" integer NOT NULL DEFAULT NEXTVAL('SUBGRUPO_seq'),
-	nombre smallint NOT NULL,
+	nombre varchar(50) NOT NULL,
 	"ID_grupo" integer,
 	CONSTRAINT "SUBGRUPO_pk" PRIMARY KEY ("ID")
 
