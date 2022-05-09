@@ -160,23 +160,23 @@ REFERENCES public.anio_periodo (anio,periodo) MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
--- object: public.municipo | type: TABLE --
+-- object: public.municipio | type: TABLE --
 -- DROP TABLE IF EXISTS public.municipo CASCADE;
 CREATE TABLE public.municipo (
 	"ID" integer NOT NULL,
 	nombre varchar(45),
 	"ID_departamento" integer,
-	CONSTRAINT "MUNICIPIO_pk" PRIMARY KEY ("ID")
+	CONSTRAINT "municipio_pk" PRIMARY KEY ("ID")
 
 );
 -- ddl-end --
--- ALTER TABLE public.municipo OWNER TO postgres;
+-- ALTER TABLE public.municipio OWNER TO postgres;
 -- ddl-end --
 
 -- object: municipo_fk | type: CONSTRAINT --
--- ALTER TABLE public.produccion DROP CONSTRAINT IF EXISTS municipo_fk CASCADE;
-ALTER TABLE public.produccion ADD CONSTRAINT municipo_fk FOREIGN KEY ("ID_municipo")
-REFERENCES public.municipo ("ID") MATCH FULL
+-- ALTER TABLE public.produccion DROP CONSTRAINT IF EXISTS municipio_fk CASCADE;
+ALTER TABLE public.produccion ADD CONSTRAINT municipio_fk FOREIGN KEY ("ID_municipio")
+REFERENCES public.municipio ("ID") MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
@@ -193,8 +193,8 @@ CREATE TABLE public.departamento (
 -- ddl-end --
 
 -- object: departamento_fk | type: CONSTRAINT --
--- ALTER TABLE public.municipo DROP CONSTRAINT IF EXISTS departamento_fk CASCADE;
-ALTER TABLE public.municipo ADD CONSTRAINT departamento_fk FOREIGN KEY ("ID_departamento")
+-- ALTER TABLE public.municipio DROP CONSTRAINT IF EXISTS departamento_fk CASCADE;
+ALTER TABLE public.municipio ADD CONSTRAINT departamento_fk FOREIGN KEY ("ID_departamento")
 REFERENCES public.departamento ("ID") MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
