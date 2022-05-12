@@ -20,8 +20,8 @@ CREATE TABLE public.cultivo (
 	codigo integer NOT NULL DEFAULT NEXTVAL('CULTIVO_seq'),
 	nombre varchar(45),
 	nombre_cientifico varchar(45),
-	"ID_subgrupo" integer,
-	"ID_ciclo_cultivo" integer NOT NULL,
+	"id_subgrupo" integer,
+	"id_ciclo_cultivo" integer NOT NULL,
 	CONSTRAINT "CULTIVO_pk" PRIMARY KEY (codigo)
 
 );
@@ -33,7 +33,7 @@ CREATE TABLE public.cultivo (
 -- DROP TABLE IF EXISTS public.ciclo_cultivo CASCADE;
 CREATE SEQUENCE CICLO_seq;
 CREATE TABLE public."ciclo_cultivo" (
-	"ID" integer NOT NULL DEFAULT NEXTVAL('CICLO_seq'),
+	"id" integer NOT NULL DEFAULT NEXTVAL('CICLO_seq'),
 	ciclo varchar(45),
 	CONSTRAINT "CICLO_CULTIVO_pk" PRIMARY KEY ("ID")
 
@@ -53,7 +53,7 @@ ON DELETE RESTRICT ON UPDATE CASCADE;
 -- DROP TABLE IF EXISTS public.grupo CASCADE;
 CREATE SEQUENCE GRUPO_seq;
 CREATE TABLE public.grupo (
-	"ID" integer NOT NULL DEFAULT NEXTVAL('GRUPO_seq'),
+	"id" integer NOT NULL DEFAULT NEXTVAL('GRUPO_seq'),
 	nombre varchar(70) NOT NULL,
 	CONSTRAINT "GRUPO_pk" PRIMARY KEY ("ID")
 
@@ -101,10 +101,10 @@ CREATE TABLE public.produccion (
 	id_produccion integer NOT NULL DEFAULT NEXTVAL('produccion_seq'),
 	cantidad real NOT NULL,
 	area_sembrada real,
-	areal_cosechada real,
+	area_cosechada real,
 	codigo_cultivo integer NOT NULL,
-	"ID_municipio" integer NOT NULL,
-	"ID_estado" integer,
+	"id_municipio" integer NOT NULL,
+	"id_estado" integer,
 	anio_anio_periodo integer,
 	periodo_anio_periodo char(5),
 	CONSTRAINT produccion_pk PRIMARY KEY (id_produccion)
@@ -118,7 +118,7 @@ CREATE TABLE public.produccion (
 -- DROP TABLE IF EXISTS public.estado CASCADE;
 CREATE SEQUENCE ESTADO_seq;
 CREATE TABLE public.estado (
-	"ID" integer NOT NULL DEFAULT NEXTVAL('ESTADO_seq'),
+	"id" integer NOT NULL DEFAULT NEXTVAL('ESTADO_seq'),
 	estado varchar(45),
 	CONSTRAINT "ESTADO_pk" PRIMARY KEY ("ID")
 
@@ -163,9 +163,9 @@ ON DELETE SET NULL ON UPDATE CASCADE;
 -- object: public.municipio | type: TABLE --
 -- DROP TABLE IF EXISTS public.municipio CASCADE;
 CREATE TABLE public.municipio (
-	"ID" integer NOT NULL,
+	"id" integer NOT NULL,
 	nombre varchar(45),
-	"ID_departamento" integer,
+	"id_departamento" integer,
 	CONSTRAINT "municipio_pk" PRIMARY KEY ("ID")
 
 );
@@ -183,7 +183,7 @@ ON DELETE SET NULL ON UPDATE CASCADE;
 -- object: public.departamento | type: TABLE --
 -- DROP TABLE IF EXISTS public.departamento CASCADE;
 CREATE TABLE public.departamento (
-	"ID" integer NOT NULL,
+	"id" integer NOT NULL,
 	nombre varchar(45),
 	CONSTRAINT "DEPARTAMENTO_pk" PRIMARY KEY ("ID")
 
