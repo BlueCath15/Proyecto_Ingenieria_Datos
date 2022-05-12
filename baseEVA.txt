@@ -15,9 +15,8 @@
 
 -- object: public.cultivo | type: TABLE --
 -- DROP TABLE IF EXISTS public.cultivo CASCADE;
-CREATE SEQUENCE CULTIVO_seq;
 CREATE TABLE public.cultivo (
-	codigo integer NOT NULL DEFAULT NEXTVAL('CULTIVO_seq'),
+	codigo integer NOT NULL,
 	nombre varchar(45),
 	nombre_cientifico varchar(45),
 	"id_subgrupo" integer,
@@ -31,7 +30,11 @@ CREATE TABLE public.cultivo (
 
 -- object: public.ciclo_cultivo | type: TABLE --
 -- DROP TABLE IF EXISTS public.ciclo_cultivo CASCADE;
-CREATE SEQUENCE CICLO_seq;
+CREATE SEQUENCE CICLO_seq
+	start with 1
+	increment by 1
+	no minvalue
+	no maxvalue;
 CREATE TABLE public."ciclo_cultivo" (
 	"id" integer NOT NULL DEFAULT NEXTVAL('CICLO_seq'),
 	ciclo varchar(45),
@@ -51,7 +54,11 @@ ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- object: public.grupo | type: TABLE --
 -- DROP TABLE IF EXISTS public.grupo CASCADE;
-CREATE SEQUENCE GRUPO_seq;
+CREATE SEQUENCE GRUPO_seq
+	start with 18
+	increment by 1
+	no minvalue
+	no maxvalue;
 CREATE TABLE public.grupo (
 	"id" integer NOT NULL DEFAULT NEXTVAL('GRUPO_seq'),
 	nombre varchar(70) NOT NULL,
@@ -64,7 +71,11 @@ CREATE TABLE public.grupo (
 
 -- object: public.subgrupo | type: TABLE --
 -- DROP TABLE IF EXISTS public.subgrupo CASCADE;
-CREATE SEQUENCE SUBGRUPO_seq;
+CREATE SEQUENCE SUBGRUPO_seq
+	start with 83
+	increment by 1
+	no minvalue
+	no maxvalue;
 CREATE TABLE public.subgrupo (
 	"id" integer NOT NULL DEFAULT NEXTVAL('SUBGRUPO_seq'),
 	nombre varchar(50) NOT NULL,
@@ -116,11 +127,15 @@ CREATE TABLE public.produccion (
 
 -- object: public.estado | type: TABLE --
 -- DROP TABLE IF EXISTS public.estado CASCADE;
-CREATE SEQUENCE ESTADO_seq;
+CREATE SEQUENCE ESTADO_seq
+	start with 1
+	increment by 1
+	no minvalue
+	no maxvalue;
 CREATE TABLE public.estado (
 	"id" integer NOT NULL DEFAULT NEXTVAL('ESTADO_seq'),
 	estado varchar(45),
-	CONSTRAINT "ESTADO_pk" PRIMARY KEY ("ID")
+	CONSTRAINT "ESTADO_pk" PRIMARY KEY ("id")
 
 );
 -- ddl-end --
@@ -198,6 +213,3 @@ ALTER TABLE public.municipio ADD CONSTRAINT departamento_fk FOREIGN KEY ("id_dep
 REFERENCES public.departamento ("id") MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
-
-
-
