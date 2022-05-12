@@ -66,9 +66,9 @@ CREATE TABLE public.grupo (
 -- DROP TABLE IF EXISTS public.subgrupo CASCADE;
 CREATE SEQUENCE SUBGRUPO_seq;
 CREATE TABLE public.subgrupo (
-	"ID" integer NOT NULL DEFAULT NEXTVAL('SUBGRUPO_seq'),
+	"id" integer NOT NULL DEFAULT NEXTVAL('SUBGRUPO_seq'),
 	nombre varchar(50) NOT NULL,
-	"ID_grupo" integer,
+	"id_grupo" integer,
 	CONSTRAINT "SUBGRUPO_pk" PRIMARY KEY ("ID")
 
 );
