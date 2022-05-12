@@ -35,7 +35,7 @@ CREATE SEQUENCE CICLO_seq;
 CREATE TABLE public."ciclo_cultivo" (
 	"id" integer NOT NULL DEFAULT NEXTVAL('CICLO_seq'),
 	ciclo varchar(45),
-	CONSTRAINT "CICLO_CULTIVO_pk" PRIMARY KEY ("ID")
+	CONSTRAINT "CICLO_CULTIVO_pk" PRIMARY KEY ("id")
 
 );
 -- ddl-end --
@@ -44,8 +44,8 @@ CREATE TABLE public."ciclo_cultivo" (
 
 -- object: ciclo_cultivo_fk | type: CONSTRAINT --
 -- ALTER TABLE public.cultivo DROP CONSTRAINT IF EXISTS ciclo_cultivo_fk CASCADE;
-ALTER TABLE public.cultivo ADD CONSTRAINT ciclo_cultivo_fk FOREIGN KEY ("ID_ciclo_cultivo")
-REFERENCES public.ciclo_cultivo ("ID") MATCH FULL
+ALTER TABLE public.cultivo ADD CONSTRAINT ciclo_cultivo_fk FOREIGN KEY ("id_ciclo_cultivo")
+REFERENCES public.ciclo_cultivo ("id") MATCH FULL
 ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
 
@@ -55,7 +55,7 @@ CREATE SEQUENCE GRUPO_seq;
 CREATE TABLE public.grupo (
 	"id" integer NOT NULL DEFAULT NEXTVAL('GRUPO_seq'),
 	nombre varchar(70) NOT NULL,
-	CONSTRAINT "GRUPO_pk" PRIMARY KEY ("ID")
+	CONSTRAINT "GRUPO_pk" PRIMARY KEY ("id")
 
 );
 -- ddl-end --
@@ -69,7 +69,7 @@ CREATE TABLE public.subgrupo (
 	"id" integer NOT NULL DEFAULT NEXTVAL('SUBGRUPO_seq'),
 	nombre varchar(50) NOT NULL,
 	"id_grupo" integer,
-	CONSTRAINT "SUBGRUPO_pk" PRIMARY KEY ("ID")
+	CONSTRAINT "SUBGRUPO_pk" PRIMARY KEY ("id")
 
 );
 -- ddl-end --
@@ -78,15 +78,15 @@ CREATE TABLE public.subgrupo (
 
 -- object: grupo_fk | type: CONSTRAINT --
 -- ALTER TABLE public.subgrupo DROP CONSTRAINT IF EXISTS grupo_fk CASCADE;
-ALTER TABLE public.subgrupo ADD CONSTRAINT grupo_fk FOREIGN KEY ("ID_grupo")
-REFERENCES public.grupo ("ID") MATCH FULL
+ALTER TABLE public.subgrupo ADD CONSTRAINT grupo_fk FOREIGN KEY ("id_grupo")
+REFERENCES public.grupo ("id") MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: subgrupo_fk | type: CONSTRAINT --
 -- ALTER TABLE public.cultivo DROP CONSTRAINT IF EXISTS subgrupo_fk CASCADE;
 ALTER TABLE public.cultivo ADD CONSTRAINT subgrupo_fk FOREIGN KEY ("ID_subgrupo")
-REFERENCES public.subgrupo ("ID") MATCH FULL
+REFERENCES public.subgrupo ("id") MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
@@ -136,8 +136,8 @@ ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- object: estado_fk | type: CONSTRAINT --
 -- ALTER TABLE public.produccion DROP CONSTRAINT IF EXISTS estado_fk CASCADE;
-ALTER TABLE public.produccion ADD CONSTRAINT estado_fk FOREIGN KEY ("ID_estado")
-REFERENCES public.estado ("ID") MATCH FULL
+ALTER TABLE public.produccion ADD CONSTRAINT estado_fk FOREIGN KEY ("id_estado")
+REFERENCES public.estado ("id") MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
@@ -166,7 +166,7 @@ CREATE TABLE public.municipio (
 	"id" integer NOT NULL,
 	nombre varchar(45),
 	"id_departamento" integer,
-	CONSTRAINT "municipio_pk" PRIMARY KEY ("ID")
+	CONSTRAINT "municipio_pk" PRIMARY KEY ("id")
 
 );
 -- ddl-end --
@@ -175,8 +175,8 @@ CREATE TABLE public.municipio (
 
 -- object: municipo_fk | type: CONSTRAINT --
 -- ALTER TABLE public.produccion DROP CONSTRAINT IF EXISTS municipio_fk CASCADE;
-ALTER TABLE public.produccion ADD CONSTRAINT municipio_fk FOREIGN KEY ("ID_municipio")
-REFERENCES public.municipio ("ID") MATCH FULL
+ALTER TABLE public.produccion ADD CONSTRAINT municipio_fk FOREIGN KEY ("id_municipio")
+REFERENCES public.municipio ("id") MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
@@ -185,7 +185,7 @@ ON DELETE SET NULL ON UPDATE CASCADE;
 CREATE TABLE public.departamento (
 	"id" integer NOT NULL,
 	nombre varchar(45),
-	CONSTRAINT "DEPARTAMENTO_pk" PRIMARY KEY ("ID")
+	CONSTRAINT "DEPARTAMENTO_pk" PRIMARY KEY ("id")
 
 );
 -- ddl-end --
@@ -194,8 +194,8 @@ CREATE TABLE public.departamento (
 
 -- object: departamento_fk | type: CONSTRAINT --
 -- ALTER TABLE public.municipio DROP CONSTRAINT IF EXISTS departamento_fk CASCADE;
-ALTER TABLE public.municipio ADD CONSTRAINT departamento_fk FOREIGN KEY ("ID_departamento")
-REFERENCES public.departamento ("ID") MATCH FULL
+ALTER TABLE public.municipio ADD CONSTRAINT departamento_fk FOREIGN KEY ("id_departamento")
+REFERENCES public.departamento ("id") MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
