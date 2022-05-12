@@ -1,0 +1,11 @@
+-- Estas son las sentencias copy que se siguieron para realizar la carga masiva de datos.
+-- Tenga en cuenta que el orden es relevante
+copy departamento from 'C:\\PF\DEPARTAMENTO.csv' with delimiter ';' csv header;
+copy municipio from 'C:\\PF\MUNICIPIO.csv' with delimiter ';' csv header;
+copy anio_periodo from 'C:\\PF\PERIODO.csv' with delimiter ';' csv header;
+copy estado("estado") from 'C:\\PF\ESTADO.csv' with delimiter ';' csv header;
+copy ciclo_cultivo("ciclo") from 'C:\\PF\CICLO.csv' with delimiter ';' csv header;
+copy grupo("nombre") from 'C:\\PF\GRUPO.csv' with delimiter ';' csv header;
+copy subgrupo("nombre", "id_grupo") from 'C:\\PF\SUBGRUPO.csv' with delimiter ';' csv header;
+copy cultivo from 'C:\\PF\CULTIVO.csv' with delimiter ';' csv header;
+copy produccion(id_municipio,codigo_cultivo, cantidad, area_sembrada, area_cosechada, anio_anio_periodo, periodo_anio_periodo,id_estado) from 'C:\\PF\PRODUCIR.csv' with delimiter ';' csv header
