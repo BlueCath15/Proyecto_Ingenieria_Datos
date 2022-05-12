@@ -161,8 +161,8 @@ ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
 
 -- object: public.municipio | type: TABLE --
--- DROP TABLE IF EXISTS public.municipo CASCADE;
-CREATE TABLE public.municipo (
+-- DROP TABLE IF EXISTS public.municipio CASCADE;
+CREATE TABLE public.municipio (
 	"ID" integer NOT NULL,
 	nombre varchar(45),
 	"ID_departamento" integer,
