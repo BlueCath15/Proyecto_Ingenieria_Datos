@@ -85,7 +85,7 @@ ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- object: subgrupo_fk | type: CONSTRAINT --
 -- ALTER TABLE public.cultivo DROP CONSTRAINT IF EXISTS subgrupo_fk CASCADE;
-ALTER TABLE public.cultivo ADD CONSTRAINT subgrupo_fk FOREIGN KEY ("ID_subgrupo")
+ALTER TABLE public.cultivo ADD CONSTRAINT subgrupo_fk FOREIGN KEY ("id_subgrupo")
 REFERENCES public.subgrupo ("id") MATCH FULL
 ON DELETE SET NULL ON UPDATE CASCADE;
 -- ddl-end --
